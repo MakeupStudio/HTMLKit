@@ -937,6 +937,16 @@ extension Attribute where Element == HTML.Tag.Link {
     public static func sizes(_ value: String) -> Self {
         return .custom("sizes", value)
     }
+    
+    // manually added
+    public  static func integrity(_ value: String) -> Self {
+        return .custom("integrity", value)
+    }
+    
+    // manually added
+    public  static func crossorigin(_ value: String) -> Self {
+        return .custom("crossorigin", value)
+    }
 
 }
 
@@ -1186,6 +1196,16 @@ extension Attribute where Element == HTML.Tag.Script {
 
     public static func async(_ value: String) -> Self {
         return .custom("async", value)
+    }
+    
+    // manually added
+    public  static func integrity(_ value: String) -> Self {
+        return .custom("integrity", value)
+    }
+    
+    // manually added
+    public  static func crossorigin(_ value: String) -> Self {
+        return .custom("crossorigin", value)
     }
 
 }

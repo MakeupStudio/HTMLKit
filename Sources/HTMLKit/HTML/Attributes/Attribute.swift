@@ -42,9 +42,3 @@ public enum Attribute<Element: HtmlTag>: MarkupAttribute, Hashable {
     
     public func render() -> String { "\(key)=\"\(value)\"" }
 }
-
-extension HTML {
-    
-    
-    
-}
