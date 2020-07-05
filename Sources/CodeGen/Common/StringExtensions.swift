@@ -1,5 +1,7 @@
 @testable import HTMLKit
+#if os(macOS) && canImport(AppKit)
 import AppKit
+#endif
 
 extension String {
     static func newline(_ count: Int = 1) -> String {
@@ -16,8 +18,12 @@ extension String {
 }
 
 extension String {
-    func toPasteboard() {
+    @discardableResult
+    func toPasteboard() -> String {
+        #if os(macOS) && canImport(AppKit)
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString(self, forType: .string)
+        #endif
+        return self
     }
 }

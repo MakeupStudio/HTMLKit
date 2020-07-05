@@ -1,8 +1,16 @@
 @testable import HTMLKit
 
-func renderBuilders(for tags: [HtmlTag] = defaultTagsToRender) {
+@discardableResult
+func renderBuilders(for tags: [HtmlTag] = defaultTagsToRender) -> String {
     let tagCatcher = TagCatcher()
-    tags.reduce(into: generationMark) { buffer, tag in
+    let prefix =
+    """
+    import MarkupCore
+    
+    private func _wrap(_ provider: NodeProvider) -> HTML.NodeWrapper<HTML.Tag> { provider.wrap() }
+    """.appending(String.newline(2))
+    
+    return tags.reduce(into: generationMark.appending(prefix)) { buffer, tag in
         tagCatcher.catch(on: tag, if: .leadingLetterChanged()) { tag in
             buffer.append(.mark(for: tag))
             buffer.append(.newline(2))
@@ -17,28 +25,32 @@ func makeBuilder(for tag: HtmlTag) -> String {
     extension HTML.Tag.\(tag._type) {
         @_functionBuilder
         public enum Builder {
-            public static func buildBlock(_ parts: ContentOfHtml\(tag._type)Tag...) -> NodeWrapper<HTML, HTML.Tag.\(tag._type)>  {
-                NodeBuilder.buildBlock(parts).wrap()
+            public static func buildBlock(_ parts: ContentOfHtml\(tag._type)Tag...) -> ContentOfHtml\(tag._type)Tag  {
+                _wrap(NodeBuilder.buildBlock(parts))
             }
             
-            public static func buildDo(_ parts: ContentOfHtml\(tag._type)Tag...) -> NodeWrapper<HTML, HTML.Tag.\(tag._type)> {
-                NodeBuilder.buildBlock(parts).wrap()
+            public static func buildDo(_ parts: ContentOfHtml\(tag._type)Tag...) -> ContentOfHtml\(tag._type)Tag {
+                _wrap(NodeBuilder.buildBlock(parts))
             }
             
-            public static func buildIf(_ part: ContentOfHtml\(tag._type)Tag) -> NodeWrapper<HTML, HTML.Tag.\(tag._type)> {
-                NodeBuilder.buildIf(part).wrap()
+            public static func buildIf(_ part: ContentOfHtml\(tag._type)Tag) -> ContentOfHtml\(tag._type)Tag {
+                _wrap(NodeBuilder.buildIf(part))
             }
             
-            public static func buildEither(first: ContentOfHtml\(tag._type)Tag) -> NodeWrapper<HTML, HTML.Tag.\(tag._type)> {
-                NodeBuilder.buildEither(first: first).wrap()
+            public static func buildEither(first: ContentOfHtml\(tag._type)Tag) -> ContentOfHtml\(tag._type)Tag {
+                _wrap(NodeBuilder.buildEither(first: first))
             }
             
-            public static func buildEither(second: ContentOfHtml\(tag._type)Tag) -> NodeWrapper<HTML, HTML.Tag.\(tag._type)> {
-                NodeBuilder.buildEither(second: second).wrap()
+            public static func buildEither(second: ContentOfHtml\(tag._type)Tag) -> ContentOfHtml\(tag._type)Tag {
+                _wrap(NodeBuilder.buildEither(second: second))
             }
             
-            public static func buildOptional(_ part: ContentOfHtml\(tag._type)Tag?) -> NodeWrapper<HTML, HTML.Tag.\(tag._type)> {
-                NodeBuilder.buildOptional(part).wrap()
+            public static func buildOptional(_ part: ContentOfHtml\(tag._type)Tag?) -> ContentOfHtml\(tag._type)Tag {
+                _wrap(NodeBuilder.buildOptional(part))
+            }
+            
+            public static func buildFinalResult(_ parts: ContentOfHtml\(tag._type)Tag...) -> ContentOfHtml\(tag._type)Tag {
+                _wrap(NodeBuilder.buildBlock(parts))
             }
         }
     }

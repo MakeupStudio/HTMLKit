@@ -1,6 +1,7 @@
 @testable import HTMLKit
 
-func renderFunctionalFactory(for tags: [HtmlTag] = defaultTagsToRender) {
+@discardableResult
+func renderFunctionalFactory(for tags: [HtmlTag] = defaultTagsToRender) -> String {
     let tagCatcher = TagCatcher()
     let defaultFunctions =
     """
@@ -31,16 +32,16 @@ func renderFunctionalFactory(for tags: [HtmlTag] = defaultTagsToRender) {
         .init(.raw(content))
     }
 
-    public func document<Content: ContentOfHtmlDocument>(_ content: () -> Content) -> Document<HTML> {
+    public func document(_ content: () -> ContentOfHtmlDocument) -> Document<HTML> {
         document(content: content())
     }
 
-    public func document<Content: ContentOfHtmlDocument>(content: Content) -> Document<HTML> {
+    public func document(content: ContentOfHtmlDocument) -> Document<HTML> {
         Document<HTML>(content: [.init(.raw("<!DOCTYPE html>")), .init(content.node)])
     }
     """.appending(String.newline(2))
     
-    tags.reduce(into: generationMark.appending(defaultFunctions)) { buffer, tag in
+    return tags.reduce(into: generationMark.appending(defaultFunctions)) { buffer, tag in
         tagCatcher.catch(on: tag, if: .leadingLetterChanged()) { tag in
             buffer.append(.mark(for: tag))
             buffer.append(.newline(2))
@@ -81,14 +82,14 @@ private func makeFunctionsForNonVoid(_ tag: HtmlTag) -> String {
     
     public func \(tag._name)(
         _ attributes: Attribute<HTML.Tag.\(tag._type)>...,
-        @HTML.Tag.\(tag._type).Builder content: () -> HTML.NodeWrapper<HTML.Tag.\(tag._type)>
+        @HTML.Tag.\(tag._type).Builder content: () -> ContentOfHtml\(tag._type)Tag
     ) -> HTML.NodeWrapper<HTML.Tag.\(tag._type)> {
         \(tag._name)(attributes.unique(), content: content)
     }
     
     public func \(tag._name)(
         _ attributes: OrderedSet<Attribute<HTML.Tag.\(tag._type)>>,
-        @HTML.Tag.\(tag._type).Builder content: () -> HTML.NodeWrapper<HTML.Tag.\(tag._type)>
+        @HTML.Tag.\(tag._type).Builder content: () -> ContentOfHtml\(tag._type)Tag
     ) -> HTML.NodeWrapper<HTML.Tag.\(tag._type)> {
         .init(.element(HTML.Tag.\(tag._type)().name, attributes.erased, content().node))
     }

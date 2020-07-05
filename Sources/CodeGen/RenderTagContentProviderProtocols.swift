@@ -1,6 +1,7 @@
 //@testable import HTMLKit
 //
-//func renderContentProviderProtocols(for tags: [HtmlTag] = defaultTagsToRender) {
+//@discardableResult
+//func renderContentProviderProtocols(for tags: [HtmlTag] = defaultTagsToRender) -> String {
 //    let tagCatcher = TagCatcher()
 //    
 //    let defaultProtocols =
@@ -20,7 +21,7 @@
 //    """
 //    .appending(String.newline(2))
 //    
-//    tags.reduce(into: generationMark.appending(defaultProtocols)) { buffer, tag in
+//    return tags.reduce(into: generationMark.appending(defaultProtocols)) { buffer, tag in
 //        tagCatcher.catch(on: tag, if: .leadingLetterChanged()) { tag in
 //            buffer.append(.mark(for: tag))
 //            buffer.append(.newline(2))

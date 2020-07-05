@@ -1,13 +1,14 @@
 //@testable import HTMLKit
 //
-//func renderNodeWrapperConformances(for tags: [HtmlTag] = defaultTagsToRender) {
+//@discardableResult
+//func renderNodeWrapperConformances(for tags: [HtmlTag] = defaultTagsToRender) -> String {
 //    let tagCatcher = TagCatcher()
 //    let defaultConformances =
 //    """
 //    extension HTML.NodeWrapper: ContentOfHtmlDocument where Semantics: HtmlDocumentContext {}
 //    """.appending(String.newline(2))
 //    
-//    tags.reduce(into: generationMark.appending(defaultConformances)) { buffer, tag in
+//    return tags.reduce(into: generationMark.appending(defaultConformances)) { buffer, tag in
 //        tagCatcher.catch(on: tag, if: .leadingLetterChanged()) { tag in
 //            buffer.append(.newline())
 //            buffer.append(.mark(for: tag))
