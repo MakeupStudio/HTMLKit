@@ -102,7 +102,6 @@ public protocol ContentOfHtmlStyleTag       : NodeProvider {}
 public protocol ContentOfHtmlSubTag         : NodeProvider {}
 public protocol ContentOfHtmlSummaryTag     : NodeProvider {}
 public protocol ContentOfHtmlSupTag         : NodeProvider {}
-public protocol ContentOfHtmlSvgTag         : NodeProvider {}
 public protocol ContentOfHtmlTableTag       : NodeProvider {}
 public protocol ContentOfHtmlTbodyTag       : NodeProvider {}
 public protocol ContentOfHtmlTdTag          : NodeProvider {}
@@ -199,7 +198,6 @@ public typealias ContentOfAnyHtmlFlowTag =
     ContentOfHtmlStrongTag      &
     ContentOfHtmlSubTag         &
     ContentOfHtmlSupTag         &
-    ContentOfHtmlSvgTag         &
     ContentOfHtmlTableTag       &
     ContentOfHtmlTemplateTag    &
     ContentOfHtmlTextareaTag    &
@@ -305,7 +303,6 @@ public typealias ContentOfAnyHtmlTag =
     ContentOfHtmlSubTag         &
     ContentOfHtmlSummaryTag     &
     ContentOfHtmlSupTag         &
-    ContentOfHtmlSvgTag         &
     ContentOfHtmlTableTag       &
     ContentOfHtmlTbodyTag       &
     ContentOfHtmlTdTag          &

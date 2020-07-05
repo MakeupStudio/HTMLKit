@@ -99,7 +99,6 @@ public protocol HtmlStyleTagContext       {}
 public protocol HtmlSubTagContext         {}
 public protocol HtmlSummaryTagContext     {}
 public protocol HtmlSupTagContext         {}
-public protocol HtmlSvgTagContext         {}
 public protocol HtmlTableTagContext       {}
 public protocol HtmlTbodyTagContext       {}
 public protocol HtmlTdTagContext          {}
@@ -196,7 +195,6 @@ public typealias AnyHtmlFlowTagContext =
     HtmlStrongTagContext      &
     HtmlSubTagContext         &
     HtmlSupTagContext         &
-    HtmlSvgTagContext         &
     HtmlTableTagContext       &
     HtmlTemplateTagContext    &
     HtmlTextareaTagContext    &
@@ -302,7 +300,6 @@ public typealias AnyHtmlTagContext =
     HtmlSubTagContext         &
     HtmlSummaryTagContext     &
     HtmlSupTagContext         &
-    HtmlSvgTagContext         &
     HtmlTableTagContext       &
     HtmlTbodyTagContext       &
     HtmlTdTagContext          &
