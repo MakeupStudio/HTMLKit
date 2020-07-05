@@ -1,3 +1,5 @@
+// MARK: - Generated
+
 import MarkupCore
 import CSSKit
 
@@ -30,10 +32,10 @@ public func document<Content: ContentOfHtmlDocument>(_ content: () -> Content) -
 }
 
 public func document<Content: ContentOfHtmlDocument>(content: Content) -> Document<HTML> {
-    Document<HTML>(content: [.init(content.node)])
+    Document<HTML>(content: [.init(.raw("<!DOCTYPE html>")), .init(content.node)])
 }
 
-//// MARK: –––––––––––––––– A ––––––––––––––––
+// MARK: - –––––––––––––––– A ––––––––––––––––
 
 public func a(_ content: String) -> HTML.NodeWrapper<HTML.Tag.A> {
     a([], content)
@@ -46,16 +48,16 @@ public func a(
     a(attributes) { text(content) }
 }
 
-public func a<Content: ContentOfHtmlATag>(
+public func a(
     _ attributes: Attribute<HTML.Tag.A>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.A.Builder content: () -> HTML.NodeWrapper<HTML.Tag.A>
 ) -> HTML.NodeWrapper<HTML.Tag.A> {
     a(attributes.unique(), content: content)
 }
 
-public func a<Content: ContentOfHtmlATag>(
+public func a(
     _ attributes: OrderedSet<Attribute<HTML.Tag.A>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.A.Builder content: () -> HTML.NodeWrapper<HTML.Tag.A>
 ) -> HTML.NodeWrapper<HTML.Tag.A> {
     .init(.element(HTML.Tag.A().name, attributes.erased, content().node))
 }
@@ -71,16 +73,16 @@ public func abbr(
     abbr(attributes) { text(content) }
 }
 
-public func abbr<Content: ContentOfHtmlAbbrTag>(
+public func abbr(
     _ attributes: Attribute<HTML.Tag.Abbr>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Abbr.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Abbr>
 ) -> HTML.NodeWrapper<HTML.Tag.Abbr> {
     abbr(attributes.unique(), content: content)
 }
 
-public func abbr<Content: ContentOfHtmlAbbrTag>(
+public func abbr(
     _ attributes: OrderedSet<Attribute<HTML.Tag.Abbr>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Abbr.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Abbr>
 ) -> HTML.NodeWrapper<HTML.Tag.Abbr> {
     .init(.element(HTML.Tag.Abbr().name, attributes.erased, content().node))
 }
@@ -96,16 +98,16 @@ public func address(
     address(attributes) { text(content) }
 }
 
-public func address<Content: ContentOfHtmlAddressTag>(
+public func address(
     _ attributes: Attribute<HTML.Tag.Address>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Address.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Address>
 ) -> HTML.NodeWrapper<HTML.Tag.Address> {
     address(attributes.unique(), content: content)
 }
 
-public func address<Content: ContentOfHtmlAddressTag>(
+public func address(
     _ attributes: OrderedSet<Attribute<HTML.Tag.Address>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Address.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Address>
 ) -> HTML.NodeWrapper<HTML.Tag.Address> {
     .init(.element(HTML.Tag.Address().name, attributes.erased, content().node))
 }
@@ -129,16 +131,16 @@ public func article(
     article(attributes) { text(content) }
 }
 
-public func article<Content: ContentOfHtmlArticleTag>(
+public func article(
     _ attributes: Attribute<HTML.Tag.Article>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Article.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Article>
 ) -> HTML.NodeWrapper<HTML.Tag.Article> {
     article(attributes.unique(), content: content)
 }
 
-public func article<Content: ContentOfHtmlArticleTag>(
+public func article(
     _ attributes: OrderedSet<Attribute<HTML.Tag.Article>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Article.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Article>
 ) -> HTML.NodeWrapper<HTML.Tag.Article> {
     .init(.element(HTML.Tag.Article().name, attributes.erased, content().node))
 }
@@ -154,16 +156,16 @@ public func aside(
     aside(attributes) { text(content) }
 }
 
-public func aside<Content: ContentOfHtmlAsideTag>(
+public func aside(
     _ attributes: Attribute<HTML.Tag.Aside>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Aside.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Aside>
 ) -> HTML.NodeWrapper<HTML.Tag.Aside> {
     aside(attributes.unique(), content: content)
 }
 
-public func aside<Content: ContentOfHtmlAsideTag>(
+public func aside(
     _ attributes: OrderedSet<Attribute<HTML.Tag.Aside>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Aside.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Aside>
 ) -> HTML.NodeWrapper<HTML.Tag.Aside> {
     .init(.element(HTML.Tag.Aside().name, attributes.erased, content().node))
 }
@@ -179,21 +181,21 @@ public func audio(
     audio(attributes) { text(content) }
 }
 
-public func audio<Content: ContentOfHtmlAudioTag>(
+public func audio(
     _ attributes: Attribute<HTML.Tag.Audio>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Audio.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Audio>
 ) -> HTML.NodeWrapper<HTML.Tag.Audio> {
     audio(attributes.unique(), content: content)
 }
 
-public func audio<Content: ContentOfHtmlAudioTag>(
+public func audio(
     _ attributes: OrderedSet<Attribute<HTML.Tag.Audio>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Audio.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Audio>
 ) -> HTML.NodeWrapper<HTML.Tag.Audio> {
     .init(.element(HTML.Tag.Audio().name, attributes.erased, content().node))
 }
 
-//// MARK: –––––––––––––––– B ––––––––––––––––
+// MARK: - –––––––––––––––– B ––––––––––––––––
 
 public func b(_ content: String) -> HTML.NodeWrapper<HTML.Tag.B> {
     b([], content)
@@ -206,16 +208,16 @@ public func b(
     b(attributes) { text(content) }
 }
 
-public func b<Content: ContentOfHtmlBTag>(
+public func b(
     _ attributes: Attribute<HTML.Tag.B>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.B.Builder content: () -> HTML.NodeWrapper<HTML.Tag.B>
 ) -> HTML.NodeWrapper<HTML.Tag.B> {
     b(attributes.unique(), content: content)
 }
 
-public func b<Content: ContentOfHtmlBTag>(
+public func b(
     _ attributes: OrderedSet<Attribute<HTML.Tag.B>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.B.Builder content: () -> HTML.NodeWrapper<HTML.Tag.B>
 ) -> HTML.NodeWrapper<HTML.Tag.B> {
     .init(.element(HTML.Tag.B().name, attributes.erased, content().node))
 }
@@ -239,16 +241,16 @@ public func bdi(
     bdi(attributes) { text(content) }
 }
 
-public func bdi<Content: ContentOfHtmlBdiTag>(
+public func bdi(
     _ attributes: Attribute<HTML.Tag.Bdi>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Bdi.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Bdi>
 ) -> HTML.NodeWrapper<HTML.Tag.Bdi> {
     bdi(attributes.unique(), content: content)
 }
 
-public func bdi<Content: ContentOfHtmlBdiTag>(
+public func bdi(
     _ attributes: OrderedSet<Attribute<HTML.Tag.Bdi>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Bdi.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Bdi>
 ) -> HTML.NodeWrapper<HTML.Tag.Bdi> {
     .init(.element(HTML.Tag.Bdi().name, attributes.erased, content().node))
 }
@@ -264,16 +266,16 @@ public func bdo(
     bdo(attributes) { text(content) }
 }
 
-public func bdo<Content: ContentOfHtmlBdoTag>(
+public func bdo(
     _ attributes: Attribute<HTML.Tag.Bdo>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Bdo.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Bdo>
 ) -> HTML.NodeWrapper<HTML.Tag.Bdo> {
     bdo(attributes.unique(), content: content)
 }
 
-public func bdo<Content: ContentOfHtmlBdoTag>(
+public func bdo(
     _ attributes: OrderedSet<Attribute<HTML.Tag.Bdo>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Bdo.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Bdo>
 ) -> HTML.NodeWrapper<HTML.Tag.Bdo> {
     .init(.element(HTML.Tag.Bdo().name, attributes.erased, content().node))
 }
@@ -289,16 +291,16 @@ public func blockquote(
     blockquote(attributes) { text(content) }
 }
 
-public func blockquote<Content: ContentOfHtmlBlockquoteTag>(
+public func blockquote(
     _ attributes: Attribute<HTML.Tag.Blockquote>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Blockquote.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Blockquote>
 ) -> HTML.NodeWrapper<HTML.Tag.Blockquote> {
     blockquote(attributes.unique(), content: content)
 }
 
-public func blockquote<Content: ContentOfHtmlBlockquoteTag>(
+public func blockquote(
     _ attributes: OrderedSet<Attribute<HTML.Tag.Blockquote>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Blockquote.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Blockquote>
 ) -> HTML.NodeWrapper<HTML.Tag.Blockquote> {
     .init(.element(HTML.Tag.Blockquote().name, attributes.erased, content().node))
 }
@@ -314,16 +316,16 @@ public func body(
     body(attributes) { text(content) }
 }
 
-public func body<Content: ContentOfHtmlBodyTag>(
+public func body(
     _ attributes: Attribute<HTML.Tag.Body>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Body.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Body>
 ) -> HTML.NodeWrapper<HTML.Tag.Body> {
     body(attributes.unique(), content: content)
 }
 
-public func body<Content: ContentOfHtmlBodyTag>(
+public func body(
     _ attributes: OrderedSet<Attribute<HTML.Tag.Body>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Body.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Body>
 ) -> HTML.NodeWrapper<HTML.Tag.Body> {
     .init(.element(HTML.Tag.Body().name, attributes.erased, content().node))
 }
@@ -347,21 +349,21 @@ public func button(
     button(attributes) { text(content) }
 }
 
-public func button<Content: ContentOfHtmlButtonTag>(
+public func button(
     _ attributes: Attribute<HTML.Tag.Button>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Button.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Button>
 ) -> HTML.NodeWrapper<HTML.Tag.Button> {
     button(attributes.unique(), content: content)
 }
 
-public func button<Content: ContentOfHtmlButtonTag>(
+public func button(
     _ attributes: OrderedSet<Attribute<HTML.Tag.Button>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Button.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Button>
 ) -> HTML.NodeWrapper<HTML.Tag.Button> {
     .init(.element(HTML.Tag.Button().name, attributes.erased, content().node))
 }
 
-//// MARK: –––––––––––––––– C ––––––––––––––––
+// MARK: - –––––––––––––––– C ––––––––––––––––
 
 public func canvas(_ content: String) -> HTML.NodeWrapper<HTML.Tag.Canvas> {
     canvas([], content)
@@ -374,16 +376,16 @@ public func canvas(
     canvas(attributes) { text(content) }
 }
 
-public func canvas<Content: ContentOfHtmlCanvasTag>(
+public func canvas(
     _ attributes: Attribute<HTML.Tag.Canvas>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Canvas.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Canvas>
 ) -> HTML.NodeWrapper<HTML.Tag.Canvas> {
     canvas(attributes.unique(), content: content)
 }
 
-public func canvas<Content: ContentOfHtmlCanvasTag>(
+public func canvas(
     _ attributes: OrderedSet<Attribute<HTML.Tag.Canvas>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Canvas.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Canvas>
 ) -> HTML.NodeWrapper<HTML.Tag.Canvas> {
     .init(.element(HTML.Tag.Canvas().name, attributes.erased, content().node))
 }
@@ -399,16 +401,16 @@ public func caption(
     caption(attributes) { text(content) }
 }
 
-public func caption<Content: ContentOfHtmlCaptionTag>(
+public func caption(
     _ attributes: Attribute<HTML.Tag.Caption>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Caption.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Caption>
 ) -> HTML.NodeWrapper<HTML.Tag.Caption> {
     caption(attributes.unique(), content: content)
 }
 
-public func caption<Content: ContentOfHtmlCaptionTag>(
+public func caption(
     _ attributes: OrderedSet<Attribute<HTML.Tag.Caption>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Caption.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Caption>
 ) -> HTML.NodeWrapper<HTML.Tag.Caption> {
     .init(.element(HTML.Tag.Caption().name, attributes.erased, content().node))
 }
@@ -424,16 +426,16 @@ public func cite(
     cite(attributes) { text(content) }
 }
 
-public func cite<Content: ContentOfHtmlCiteTag>(
+public func cite(
     _ attributes: Attribute<HTML.Tag.Cite>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Cite.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Cite>
 ) -> HTML.NodeWrapper<HTML.Tag.Cite> {
     cite(attributes.unique(), content: content)
 }
 
-public func cite<Content: ContentOfHtmlCiteTag>(
+public func cite(
     _ attributes: OrderedSet<Attribute<HTML.Tag.Cite>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Cite.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Cite>
 ) -> HTML.NodeWrapper<HTML.Tag.Cite> {
     .init(.element(HTML.Tag.Cite().name, attributes.erased, content().node))
 }
@@ -449,16 +451,16 @@ public func code(
     code(attributes) { text(content) }
 }
 
-public func code<Content: ContentOfHtmlCodeTag>(
+public func code(
     _ attributes: Attribute<HTML.Tag.Code>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Code.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Code>
 ) -> HTML.NodeWrapper<HTML.Tag.Code> {
     code(attributes.unique(), content: content)
 }
 
-public func code<Content: ContentOfHtmlCodeTag>(
+public func code(
     _ attributes: OrderedSet<Attribute<HTML.Tag.Code>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Code.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Code>
 ) -> HTML.NodeWrapper<HTML.Tag.Code> {
     .init(.element(HTML.Tag.Code().name, attributes.erased, content().node))
 }
@@ -482,21 +484,21 @@ public func colgroup(
     colgroup(attributes) { text(content) }
 }
 
-public func colgroup<Content: ContentOfHtmlColgroupTag>(
+public func colgroup(
     _ attributes: Attribute<HTML.Tag.Colgroup>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Colgroup.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Colgroup>
 ) -> HTML.NodeWrapper<HTML.Tag.Colgroup> {
     colgroup(attributes.unique(), content: content)
 }
 
-public func colgroup<Content: ContentOfHtmlColgroupTag>(
+public func colgroup(
     _ attributes: OrderedSet<Attribute<HTML.Tag.Colgroup>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Colgroup.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Colgroup>
 ) -> HTML.NodeWrapper<HTML.Tag.Colgroup> {
     .init(.element(HTML.Tag.Colgroup().name, attributes.erased, content().node))
 }
 
-//// MARK: –––––––––––––––– D ––––––––––––––––
+// MARK: - –––––––––––––––– D ––––––––––––––––
 
 public func data(_ content: String) -> HTML.NodeWrapper<HTML.Tag.Data> {
     data([], content)
@@ -509,16 +511,16 @@ public func data(
     data(attributes) { text(content) }
 }
 
-public func data<Content: ContentOfHtmlDataTag>(
+public func data(
     _ attributes: Attribute<HTML.Tag.Data>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Data.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Data>
 ) -> HTML.NodeWrapper<HTML.Tag.Data> {
     data(attributes.unique(), content: content)
 }
 
-public func data<Content: ContentOfHtmlDataTag>(
+public func data(
     _ attributes: OrderedSet<Attribute<HTML.Tag.Data>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Data.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Data>
 ) -> HTML.NodeWrapper<HTML.Tag.Data> {
     .init(.element(HTML.Tag.Data().name, attributes.erased, content().node))
 }
@@ -534,16 +536,16 @@ public func datalist(
     datalist(attributes) { text(content) }
 }
 
-public func datalist<Content: ContentOfHtmlDatalistTag>(
+public func datalist(
     _ attributes: Attribute<HTML.Tag.Datalist>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Datalist.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Datalist>
 ) -> HTML.NodeWrapper<HTML.Tag.Datalist> {
     datalist(attributes.unique(), content: content)
 }
 
-public func datalist<Content: ContentOfHtmlDatalistTag>(
+public func datalist(
     _ attributes: OrderedSet<Attribute<HTML.Tag.Datalist>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Datalist.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Datalist>
 ) -> HTML.NodeWrapper<HTML.Tag.Datalist> {
     .init(.element(HTML.Tag.Datalist().name, attributes.erased, content().node))
 }
@@ -559,16 +561,16 @@ public func dd(
     dd(attributes) { text(content) }
 }
 
-public func dd<Content: ContentOfHtmlDdTag>(
+public func dd(
     _ attributes: Attribute<HTML.Tag.Dd>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Dd.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Dd>
 ) -> HTML.NodeWrapper<HTML.Tag.Dd> {
     dd(attributes.unique(), content: content)
 }
 
-public func dd<Content: ContentOfHtmlDdTag>(
+public func dd(
     _ attributes: OrderedSet<Attribute<HTML.Tag.Dd>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Dd.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Dd>
 ) -> HTML.NodeWrapper<HTML.Tag.Dd> {
     .init(.element(HTML.Tag.Dd().name, attributes.erased, content().node))
 }
@@ -584,16 +586,16 @@ public func del(
     del(attributes) { text(content) }
 }
 
-public func del<Content: ContentOfHtmlDelTag>(
+public func del(
     _ attributes: Attribute<HTML.Tag.Del>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Del.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Del>
 ) -> HTML.NodeWrapper<HTML.Tag.Del> {
     del(attributes.unique(), content: content)
 }
 
-public func del<Content: ContentOfHtmlDelTag>(
+public func del(
     _ attributes: OrderedSet<Attribute<HTML.Tag.Del>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Del.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Del>
 ) -> HTML.NodeWrapper<HTML.Tag.Del> {
     .init(.element(HTML.Tag.Del().name, attributes.erased, content().node))
 }
@@ -609,16 +611,16 @@ public func details(
     details(attributes) { text(content) }
 }
 
-public func details<Content: ContentOfHtmlDetailsTag>(
+public func details(
     _ attributes: Attribute<HTML.Tag.Details>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Details.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Details>
 ) -> HTML.NodeWrapper<HTML.Tag.Details> {
     details(attributes.unique(), content: content)
 }
 
-public func details<Content: ContentOfHtmlDetailsTag>(
+public func details(
     _ attributes: OrderedSet<Attribute<HTML.Tag.Details>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Details.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Details>
 ) -> HTML.NodeWrapper<HTML.Tag.Details> {
     .init(.element(HTML.Tag.Details().name, attributes.erased, content().node))
 }
@@ -634,16 +636,16 @@ public func dfn(
     dfn(attributes) { text(content) }
 }
 
-public func dfn<Content: ContentOfHtmlDfnTag>(
+public func dfn(
     _ attributes: Attribute<HTML.Tag.Dfn>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Dfn.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Dfn>
 ) -> HTML.NodeWrapper<HTML.Tag.Dfn> {
     dfn(attributes.unique(), content: content)
 }
 
-public func dfn<Content: ContentOfHtmlDfnTag>(
+public func dfn(
     _ attributes: OrderedSet<Attribute<HTML.Tag.Dfn>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Dfn.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Dfn>
 ) -> HTML.NodeWrapper<HTML.Tag.Dfn> {
     .init(.element(HTML.Tag.Dfn().name, attributes.erased, content().node))
 }
@@ -659,16 +661,16 @@ public func dialog(
     dialog(attributes) { text(content) }
 }
 
-public func dialog<Content: ContentOfHtmlDialogTag>(
+public func dialog(
     _ attributes: Attribute<HTML.Tag.Dialog>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Dialog.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Dialog>
 ) -> HTML.NodeWrapper<HTML.Tag.Dialog> {
     dialog(attributes.unique(), content: content)
 }
 
-public func dialog<Content: ContentOfHtmlDialogTag>(
+public func dialog(
     _ attributes: OrderedSet<Attribute<HTML.Tag.Dialog>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Dialog.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Dialog>
 ) -> HTML.NodeWrapper<HTML.Tag.Dialog> {
     .init(.element(HTML.Tag.Dialog().name, attributes.erased, content().node))
 }
@@ -684,16 +686,16 @@ public func div(
     div(attributes) { text(content) }
 }
 
-public func div<Content: ContentOfHtmlDivTag>(
+public func div(
     _ attributes: Attribute<HTML.Tag.Div>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Div.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Div>
 ) -> HTML.NodeWrapper<HTML.Tag.Div> {
     div(attributes.unique(), content: content)
 }
 
-public func div<Content: ContentOfHtmlDivTag>(
+public func div(
     _ attributes: OrderedSet<Attribute<HTML.Tag.Div>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Div.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Div>
 ) -> HTML.NodeWrapper<HTML.Tag.Div> {
     .init(.element(HTML.Tag.Div().name, attributes.erased, content().node))
 }
@@ -709,16 +711,16 @@ public func dl(
     dl(attributes) { text(content) }
 }
 
-public func dl<Content: ContentOfHtmlDlTag>(
+public func dl(
     _ attributes: Attribute<HTML.Tag.Dl>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Dl.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Dl>
 ) -> HTML.NodeWrapper<HTML.Tag.Dl> {
     dl(attributes.unique(), content: content)
 }
 
-public func dl<Content: ContentOfHtmlDlTag>(
+public func dl(
     _ attributes: OrderedSet<Attribute<HTML.Tag.Dl>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Dl.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Dl>
 ) -> HTML.NodeWrapper<HTML.Tag.Dl> {
     .init(.element(HTML.Tag.Dl().name, attributes.erased, content().node))
 }
@@ -734,21 +736,21 @@ public func dt(
     dt(attributes) { text(content) }
 }
 
-public func dt<Content: ContentOfHtmlDtTag>(
+public func dt(
     _ attributes: Attribute<HTML.Tag.Dt>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Dt.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Dt>
 ) -> HTML.NodeWrapper<HTML.Tag.Dt> {
     dt(attributes.unique(), content: content)
 }
 
-public func dt<Content: ContentOfHtmlDtTag>(
+public func dt(
     _ attributes: OrderedSet<Attribute<HTML.Tag.Dt>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Dt.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Dt>
 ) -> HTML.NodeWrapper<HTML.Tag.Dt> {
     .init(.element(HTML.Tag.Dt().name, attributes.erased, content().node))
 }
 
-//// MARK: –––––––––––––––– E ––––––––––––––––
+// MARK: - –––––––––––––––– E ––––––––––––––––
 
 public func em(_ content: String) -> HTML.NodeWrapper<HTML.Tag.Em> {
     em([], content)
@@ -761,16 +763,16 @@ public func em(
     em(attributes) { text(content) }
 }
 
-public func em<Content: ContentOfHtmlEmTag>(
+public func em(
     _ attributes: Attribute<HTML.Tag.Em>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Em.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Em>
 ) -> HTML.NodeWrapper<HTML.Tag.Em> {
     em(attributes.unique(), content: content)
 }
 
-public func em<Content: ContentOfHtmlEmTag>(
+public func em(
     _ attributes: OrderedSet<Attribute<HTML.Tag.Em>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Em.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Em>
 ) -> HTML.NodeWrapper<HTML.Tag.Em> {
     .init(.element(HTML.Tag.Em().name, attributes.erased, content().node))
 }
@@ -783,7 +785,7 @@ public func embed(_ attributes: OrderedSet<Attribute<HTML.Tag.Embed>>) -> HTML.N
     .init(.element(HTML.Tag.Embed().name, attributes.erased, []))
 }
 
-//// MARK: –––––––––––––––– F ––––––––––––––––
+// MARK: - –––––––––––––––– F ––––––––––––––––
 
 public func fieldset(_ content: String) -> HTML.NodeWrapper<HTML.Tag.Fieldset> {
     fieldset([], content)
@@ -796,16 +798,16 @@ public func fieldset(
     fieldset(attributes) { text(content) }
 }
 
-public func fieldset<Content: ContentOfHtmlFieldsetTag>(
+public func fieldset(
     _ attributes: Attribute<HTML.Tag.Fieldset>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Fieldset.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Fieldset>
 ) -> HTML.NodeWrapper<HTML.Tag.Fieldset> {
     fieldset(attributes.unique(), content: content)
 }
 
-public func fieldset<Content: ContentOfHtmlFieldsetTag>(
+public func fieldset(
     _ attributes: OrderedSet<Attribute<HTML.Tag.Fieldset>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Fieldset.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Fieldset>
 ) -> HTML.NodeWrapper<HTML.Tag.Fieldset> {
     .init(.element(HTML.Tag.Fieldset().name, attributes.erased, content().node))
 }
@@ -821,16 +823,16 @@ public func figcaption(
     figcaption(attributes) { text(content) }
 }
 
-public func figcaption<Content: ContentOfHtmlFigcaptionTag>(
+public func figcaption(
     _ attributes: Attribute<HTML.Tag.Figcaption>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Figcaption.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Figcaption>
 ) -> HTML.NodeWrapper<HTML.Tag.Figcaption> {
     figcaption(attributes.unique(), content: content)
 }
 
-public func figcaption<Content: ContentOfHtmlFigcaptionTag>(
+public func figcaption(
     _ attributes: OrderedSet<Attribute<HTML.Tag.Figcaption>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Figcaption.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Figcaption>
 ) -> HTML.NodeWrapper<HTML.Tag.Figcaption> {
     .init(.element(HTML.Tag.Figcaption().name, attributes.erased, content().node))
 }
@@ -846,16 +848,16 @@ public func figure(
     figure(attributes) { text(content) }
 }
 
-public func figure<Content: ContentOfHtmlFigureTag>(
+public func figure(
     _ attributes: Attribute<HTML.Tag.Figure>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Figure.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Figure>
 ) -> HTML.NodeWrapper<HTML.Tag.Figure> {
     figure(attributes.unique(), content: content)
 }
 
-public func figure<Content: ContentOfHtmlFigureTag>(
+public func figure(
     _ attributes: OrderedSet<Attribute<HTML.Tag.Figure>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Figure.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Figure>
 ) -> HTML.NodeWrapper<HTML.Tag.Figure> {
     .init(.element(HTML.Tag.Figure().name, attributes.erased, content().node))
 }
@@ -871,16 +873,16 @@ public func footer(
     footer(attributes) { text(content) }
 }
 
-public func footer<Content: ContentOfHtmlFooterTag>(
+public func footer(
     _ attributes: Attribute<HTML.Tag.Footer>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Footer.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Footer>
 ) -> HTML.NodeWrapper<HTML.Tag.Footer> {
     footer(attributes.unique(), content: content)
 }
 
-public func footer<Content: ContentOfHtmlFooterTag>(
+public func footer(
     _ attributes: OrderedSet<Attribute<HTML.Tag.Footer>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Footer.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Footer>
 ) -> HTML.NodeWrapper<HTML.Tag.Footer> {
     .init(.element(HTML.Tag.Footer().name, attributes.erased, content().node))
 }
@@ -896,21 +898,21 @@ public func form(
     form(attributes) { text(content) }
 }
 
-public func form<Content: ContentOfHtmlFormTag>(
+public func form(
     _ attributes: Attribute<HTML.Tag.Form>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Form.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Form>
 ) -> HTML.NodeWrapper<HTML.Tag.Form> {
     form(attributes.unique(), content: content)
 }
 
-public func form<Content: ContentOfHtmlFormTag>(
+public func form(
     _ attributes: OrderedSet<Attribute<HTML.Tag.Form>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Form.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Form>
 ) -> HTML.NodeWrapper<HTML.Tag.Form> {
     .init(.element(HTML.Tag.Form().name, attributes.erased, content().node))
 }
 
-//// MARK: –––––––––––––––– H ––––––––––––––––
+// MARK: - –––––––––––––––– H ––––––––––––––––
 
 public func h1(_ content: String) -> HTML.NodeWrapper<HTML.Tag.H1> {
     h1([], content)
@@ -923,16 +925,16 @@ public func h1(
     h1(attributes) { text(content) }
 }
 
-public func h1<Content: ContentOfHtmlH1Tag>(
+public func h1(
     _ attributes: Attribute<HTML.Tag.H1>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.H1.Builder content: () -> HTML.NodeWrapper<HTML.Tag.H1>
 ) -> HTML.NodeWrapper<HTML.Tag.H1> {
     h1(attributes.unique(), content: content)
 }
 
-public func h1<Content: ContentOfHtmlH1Tag>(
+public func h1(
     _ attributes: OrderedSet<Attribute<HTML.Tag.H1>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.H1.Builder content: () -> HTML.NodeWrapper<HTML.Tag.H1>
 ) -> HTML.NodeWrapper<HTML.Tag.H1> {
     .init(.element(HTML.Tag.H1().name, attributes.erased, content().node))
 }
@@ -948,16 +950,16 @@ public func h2(
     h2(attributes) { text(content) }
 }
 
-public func h2<Content: ContentOfHtmlH2Tag>(
+public func h2(
     _ attributes: Attribute<HTML.Tag.H2>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.H2.Builder content: () -> HTML.NodeWrapper<HTML.Tag.H2>
 ) -> HTML.NodeWrapper<HTML.Tag.H2> {
     h2(attributes.unique(), content: content)
 }
 
-public func h2<Content: ContentOfHtmlH2Tag>(
+public func h2(
     _ attributes: OrderedSet<Attribute<HTML.Tag.H2>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.H2.Builder content: () -> HTML.NodeWrapper<HTML.Tag.H2>
 ) -> HTML.NodeWrapper<HTML.Tag.H2> {
     .init(.element(HTML.Tag.H2().name, attributes.erased, content().node))
 }
@@ -973,16 +975,16 @@ public func h3(
     h3(attributes) { text(content) }
 }
 
-public func h3<Content: ContentOfHtmlH3Tag>(
+public func h3(
     _ attributes: Attribute<HTML.Tag.H3>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.H3.Builder content: () -> HTML.NodeWrapper<HTML.Tag.H3>
 ) -> HTML.NodeWrapper<HTML.Tag.H3> {
     h3(attributes.unique(), content: content)
 }
 
-public func h3<Content: ContentOfHtmlH3Tag>(
+public func h3(
     _ attributes: OrderedSet<Attribute<HTML.Tag.H3>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.H3.Builder content: () -> HTML.NodeWrapper<HTML.Tag.H3>
 ) -> HTML.NodeWrapper<HTML.Tag.H3> {
     .init(.element(HTML.Tag.H3().name, attributes.erased, content().node))
 }
@@ -998,16 +1000,16 @@ public func h4(
     h4(attributes) { text(content) }
 }
 
-public func h4<Content: ContentOfHtmlH4Tag>(
+public func h4(
     _ attributes: Attribute<HTML.Tag.H4>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.H4.Builder content: () -> HTML.NodeWrapper<HTML.Tag.H4>
 ) -> HTML.NodeWrapper<HTML.Tag.H4> {
     h4(attributes.unique(), content: content)
 }
 
-public func h4<Content: ContentOfHtmlH4Tag>(
+public func h4(
     _ attributes: OrderedSet<Attribute<HTML.Tag.H4>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.H4.Builder content: () -> HTML.NodeWrapper<HTML.Tag.H4>
 ) -> HTML.NodeWrapper<HTML.Tag.H4> {
     .init(.element(HTML.Tag.H4().name, attributes.erased, content().node))
 }
@@ -1023,16 +1025,16 @@ public func h5(
     h5(attributes) { text(content) }
 }
 
-public func h5<Content: ContentOfHtmlH5Tag>(
+public func h5(
     _ attributes: Attribute<HTML.Tag.H5>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.H5.Builder content: () -> HTML.NodeWrapper<HTML.Tag.H5>
 ) -> HTML.NodeWrapper<HTML.Tag.H5> {
     h5(attributes.unique(), content: content)
 }
 
-public func h5<Content: ContentOfHtmlH5Tag>(
+public func h5(
     _ attributes: OrderedSet<Attribute<HTML.Tag.H5>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.H5.Builder content: () -> HTML.NodeWrapper<HTML.Tag.H5>
 ) -> HTML.NodeWrapper<HTML.Tag.H5> {
     .init(.element(HTML.Tag.H5().name, attributes.erased, content().node))
 }
@@ -1048,16 +1050,16 @@ public func h6(
     h6(attributes) { text(content) }
 }
 
-public func h6<Content: ContentOfHtmlH6Tag>(
+public func h6(
     _ attributes: Attribute<HTML.Tag.H6>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.H6.Builder content: () -> HTML.NodeWrapper<HTML.Tag.H6>
 ) -> HTML.NodeWrapper<HTML.Tag.H6> {
     h6(attributes.unique(), content: content)
 }
 
-public func h6<Content: ContentOfHtmlH6Tag>(
+public func h6(
     _ attributes: OrderedSet<Attribute<HTML.Tag.H6>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.H6.Builder content: () -> HTML.NodeWrapper<HTML.Tag.H6>
 ) -> HTML.NodeWrapper<HTML.Tag.H6> {
     .init(.element(HTML.Tag.H6().name, attributes.erased, content().node))
 }
@@ -1073,16 +1075,16 @@ public func head(
     head(attributes) { text(content) }
 }
 
-public func head<Content: ContentOfHtmlHeadTag>(
+public func head(
     _ attributes: Attribute<HTML.Tag.Head>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Head.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Head>
 ) -> HTML.NodeWrapper<HTML.Tag.Head> {
     head(attributes.unique(), content: content)
 }
 
-public func head<Content: ContentOfHtmlHeadTag>(
+public func head(
     _ attributes: OrderedSet<Attribute<HTML.Tag.Head>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Head.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Head>
 ) -> HTML.NodeWrapper<HTML.Tag.Head> {
     .init(.element(HTML.Tag.Head().name, attributes.erased, content().node))
 }
@@ -1098,16 +1100,16 @@ public func header(
     header(attributes) { text(content) }
 }
 
-public func header<Content: ContentOfHtmlHeaderTag>(
+public func header(
     _ attributes: Attribute<HTML.Tag.Header>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Header.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Header>
 ) -> HTML.NodeWrapper<HTML.Tag.Header> {
     header(attributes.unique(), content: content)
 }
 
-public func header<Content: ContentOfHtmlHeaderTag>(
+public func header(
     _ attributes: OrderedSet<Attribute<HTML.Tag.Header>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Header.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Header>
 ) -> HTML.NodeWrapper<HTML.Tag.Header> {
     .init(.element(HTML.Tag.Header().name, attributes.erased, content().node))
 }
@@ -1131,21 +1133,21 @@ public func html(
     html(attributes) { text(content) }
 }
 
-public func html<Content: ContentOfHtmlHtmlTag>(
+public func html(
     _ attributes: Attribute<HTML.Tag.Html>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Html.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Html>
 ) -> HTML.NodeWrapper<HTML.Tag.Html> {
     html(attributes.unique(), content: content)
 }
 
-public func html<Content: ContentOfHtmlHtmlTag>(
+public func html(
     _ attributes: OrderedSet<Attribute<HTML.Tag.Html>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Html.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Html>
 ) -> HTML.NodeWrapper<HTML.Tag.Html> {
     .init(.element(HTML.Tag.Html().name, attributes.erased, content().node))
 }
 
-//// MARK: –––––––––––––––– I ––––––––––––––––
+// MARK: - –––––––––––––––– I ––––––––––––––––
 
 public func i(_ content: String) -> HTML.NodeWrapper<HTML.Tag.I> {
     i([], content)
@@ -1158,16 +1160,16 @@ public func i(
     i(attributes) { text(content) }
 }
 
-public func i<Content: ContentOfHtmlITag>(
+public func i(
     _ attributes: Attribute<HTML.Tag.I>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.I.Builder content: () -> HTML.NodeWrapper<HTML.Tag.I>
 ) -> HTML.NodeWrapper<HTML.Tag.I> {
     i(attributes.unique(), content: content)
 }
 
-public func i<Content: ContentOfHtmlITag>(
+public func i(
     _ attributes: OrderedSet<Attribute<HTML.Tag.I>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.I.Builder content: () -> HTML.NodeWrapper<HTML.Tag.I>
 ) -> HTML.NodeWrapper<HTML.Tag.I> {
     .init(.element(HTML.Tag.I().name, attributes.erased, content().node))
 }
@@ -1183,16 +1185,16 @@ public func iframe(
     iframe(attributes) { text(content) }
 }
 
-public func iframe<Content: ContentOfHtmlIframeTag>(
+public func iframe(
     _ attributes: Attribute<HTML.Tag.Iframe>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Iframe.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Iframe>
 ) -> HTML.NodeWrapper<HTML.Tag.Iframe> {
     iframe(attributes.unique(), content: content)
 }
 
-public func iframe<Content: ContentOfHtmlIframeTag>(
+public func iframe(
     _ attributes: OrderedSet<Attribute<HTML.Tag.Iframe>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Iframe.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Iframe>
 ) -> HTML.NodeWrapper<HTML.Tag.Iframe> {
     .init(.element(HTML.Tag.Iframe().name, attributes.erased, content().node))
 }
@@ -1224,21 +1226,21 @@ public func ins(
     ins(attributes) { text(content) }
 }
 
-public func ins<Content: ContentOfHtmlInsTag>(
+public func ins(
     _ attributes: Attribute<HTML.Tag.Ins>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Ins.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Ins>
 ) -> HTML.NodeWrapper<HTML.Tag.Ins> {
     ins(attributes.unique(), content: content)
 }
 
-public func ins<Content: ContentOfHtmlInsTag>(
+public func ins(
     _ attributes: OrderedSet<Attribute<HTML.Tag.Ins>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Ins.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Ins>
 ) -> HTML.NodeWrapper<HTML.Tag.Ins> {
     .init(.element(HTML.Tag.Ins().name, attributes.erased, content().node))
 }
 
-//// MARK: –––––––––––––––– K ––––––––––––––––
+// MARK: - –––––––––––––––– K ––––––––––––––––
 
 public func kbd(_ content: String) -> HTML.NodeWrapper<HTML.Tag.Kbd> {
     kbd([], content)
@@ -1251,21 +1253,21 @@ public func kbd(
     kbd(attributes) { text(content) }
 }
 
-public func kbd<Content: ContentOfHtmlKbdTag>(
+public func kbd(
     _ attributes: Attribute<HTML.Tag.Kbd>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Kbd.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Kbd>
 ) -> HTML.NodeWrapper<HTML.Tag.Kbd> {
     kbd(attributes.unique(), content: content)
 }
 
-public func kbd<Content: ContentOfHtmlKbdTag>(
+public func kbd(
     _ attributes: OrderedSet<Attribute<HTML.Tag.Kbd>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Kbd.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Kbd>
 ) -> HTML.NodeWrapper<HTML.Tag.Kbd> {
     .init(.element(HTML.Tag.Kbd().name, attributes.erased, content().node))
 }
 
-//// MARK: –––––––––––––––– L ––––––––––––––––
+// MARK: - –––––––––––––––– L ––––––––––––––––
 
 public func label(_ content: String) -> HTML.NodeWrapper<HTML.Tag.Label> {
     label([], content)
@@ -1278,16 +1280,16 @@ public func label(
     label(attributes) { text(content) }
 }
 
-public func label<Content: ContentOfHtmlLabelTag>(
+public func label(
     _ attributes: Attribute<HTML.Tag.Label>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Label.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Label>
 ) -> HTML.NodeWrapper<HTML.Tag.Label> {
     label(attributes.unique(), content: content)
 }
 
-public func label<Content: ContentOfHtmlLabelTag>(
+public func label(
     _ attributes: OrderedSet<Attribute<HTML.Tag.Label>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Label.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Label>
 ) -> HTML.NodeWrapper<HTML.Tag.Label> {
     .init(.element(HTML.Tag.Label().name, attributes.erased, content().node))
 }
@@ -1303,16 +1305,16 @@ public func legend(
     legend(attributes) { text(content) }
 }
 
-public func legend<Content: ContentOfHtmlLegendTag>(
+public func legend(
     _ attributes: Attribute<HTML.Tag.Legend>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Legend.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Legend>
 ) -> HTML.NodeWrapper<HTML.Tag.Legend> {
     legend(attributes.unique(), content: content)
 }
 
-public func legend<Content: ContentOfHtmlLegendTag>(
+public func legend(
     _ attributes: OrderedSet<Attribute<HTML.Tag.Legend>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Legend.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Legend>
 ) -> HTML.NodeWrapper<HTML.Tag.Legend> {
     .init(.element(HTML.Tag.Legend().name, attributes.erased, content().node))
 }
@@ -1328,16 +1330,16 @@ public func li(
     li(attributes) { text(content) }
 }
 
-public func li<Content: ContentOfHtmlLiTag>(
+public func li(
     _ attributes: Attribute<HTML.Tag.Li>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Li.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Li>
 ) -> HTML.NodeWrapper<HTML.Tag.Li> {
     li(attributes.unique(), content: content)
 }
 
-public func li<Content: ContentOfHtmlLiTag>(
+public func li(
     _ attributes: OrderedSet<Attribute<HTML.Tag.Li>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Li.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Li>
 ) -> HTML.NodeWrapper<HTML.Tag.Li> {
     .init(.element(HTML.Tag.Li().name, attributes.erased, content().node))
 }
@@ -1350,7 +1352,7 @@ public func link(_ attributes: OrderedSet<Attribute<HTML.Tag.Link>>) -> HTML.Nod
     .init(.element(HTML.Tag.Link().name, attributes.erased, []))
 }
 
-//// MARK: –––––––––––––––– M ––––––––––––––––
+// MARK: - –––––––––––––––– M ––––––––––––––––
 
 public func main(_ content: String) -> HTML.NodeWrapper<HTML.Tag.Main> {
     main([], content)
@@ -1363,16 +1365,16 @@ public func main(
     main(attributes) { text(content) }
 }
 
-public func main<Content: ContentOfHtmlMainTag>(
+public func main(
     _ attributes: Attribute<HTML.Tag.Main>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Main.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Main>
 ) -> HTML.NodeWrapper<HTML.Tag.Main> {
     main(attributes.unique(), content: content)
 }
 
-public func main<Content: ContentOfHtmlMainTag>(
+public func main(
     _ attributes: OrderedSet<Attribute<HTML.Tag.Main>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Main.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Main>
 ) -> HTML.NodeWrapper<HTML.Tag.Main> {
     .init(.element(HTML.Tag.Main().name, attributes.erased, content().node))
 }
@@ -1388,16 +1390,16 @@ public func map(
     map(attributes) { text(content) }
 }
 
-public func map<Content: ContentOfHtmlMapTag>(
+public func map(
     _ attributes: Attribute<HTML.Tag.Map>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Map.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Map>
 ) -> HTML.NodeWrapper<HTML.Tag.Map> {
     map(attributes.unique(), content: content)
 }
 
-public func map<Content: ContentOfHtmlMapTag>(
+public func map(
     _ attributes: OrderedSet<Attribute<HTML.Tag.Map>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Map.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Map>
 ) -> HTML.NodeWrapper<HTML.Tag.Map> {
     .init(.element(HTML.Tag.Map().name, attributes.erased, content().node))
 }
@@ -1413,16 +1415,16 @@ public func mark(
     mark(attributes) { text(content) }
 }
 
-public func mark<Content: ContentOfHtmlMarkTag>(
+public func mark(
     _ attributes: Attribute<HTML.Tag.Mark>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Mark.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Mark>
 ) -> HTML.NodeWrapper<HTML.Tag.Mark> {
     mark(attributes.unique(), content: content)
 }
 
-public func mark<Content: ContentOfHtmlMarkTag>(
+public func mark(
     _ attributes: OrderedSet<Attribute<HTML.Tag.Mark>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Mark.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Mark>
 ) -> HTML.NodeWrapper<HTML.Tag.Mark> {
     .init(.element(HTML.Tag.Mark().name, attributes.erased, content().node))
 }
@@ -1446,21 +1448,21 @@ public func meter(
     meter(attributes) { text(content) }
 }
 
-public func meter<Content: ContentOfHtmlMeterTag>(
+public func meter(
     _ attributes: Attribute<HTML.Tag.Meter>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Meter.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Meter>
 ) -> HTML.NodeWrapper<HTML.Tag.Meter> {
     meter(attributes.unique(), content: content)
 }
 
-public func meter<Content: ContentOfHtmlMeterTag>(
+public func meter(
     _ attributes: OrderedSet<Attribute<HTML.Tag.Meter>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Meter.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Meter>
 ) -> HTML.NodeWrapper<HTML.Tag.Meter> {
     .init(.element(HTML.Tag.Meter().name, attributes.erased, content().node))
 }
 
-//// MARK: –––––––––––––––– N ––––––––––––––––
+// MARK: - –––––––––––––––– N ––––––––––––––––
 
 public func nav(_ content: String) -> HTML.NodeWrapper<HTML.Tag.Nav> {
     nav([], content)
@@ -1473,16 +1475,16 @@ public func nav(
     nav(attributes) { text(content) }
 }
 
-public func nav<Content: ContentOfHtmlNavTag>(
+public func nav(
     _ attributes: Attribute<HTML.Tag.Nav>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Nav.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Nav>
 ) -> HTML.NodeWrapper<HTML.Tag.Nav> {
     nav(attributes.unique(), content: content)
 }
 
-public func nav<Content: ContentOfHtmlNavTag>(
+public func nav(
     _ attributes: OrderedSet<Attribute<HTML.Tag.Nav>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Nav.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Nav>
 ) -> HTML.NodeWrapper<HTML.Tag.Nav> {
     .init(.element(HTML.Tag.Nav().name, attributes.erased, content().node))
 }
@@ -1498,21 +1500,21 @@ public func noscript(
     noscript(attributes) { text(content) }
 }
 
-public func noscript<Content: ContentOfHtmlNoscriptTag>(
+public func noscript(
     _ attributes: Attribute<HTML.Tag.Noscript>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Noscript.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Noscript>
 ) -> HTML.NodeWrapper<HTML.Tag.Noscript> {
     noscript(attributes.unique(), content: content)
 }
 
-public func noscript<Content: ContentOfHtmlNoscriptTag>(
+public func noscript(
     _ attributes: OrderedSet<Attribute<HTML.Tag.Noscript>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Noscript.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Noscript>
 ) -> HTML.NodeWrapper<HTML.Tag.Noscript> {
     .init(.element(HTML.Tag.Noscript().name, attributes.erased, content().node))
 }
 
-//// MARK: –––––––––––––––– O ––––––––––––––––
+// MARK: - –––––––––––––––– O ––––––––––––––––
 
 public func object(_ content: String) -> HTML.NodeWrapper<HTML.Tag.Object> {
     object([], content)
@@ -1525,16 +1527,16 @@ public func object(
     object(attributes) { text(content) }
 }
 
-public func object<Content: ContentOfHtmlObjectTag>(
+public func object(
     _ attributes: Attribute<HTML.Tag.Object>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Object.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Object>
 ) -> HTML.NodeWrapper<HTML.Tag.Object> {
     object(attributes.unique(), content: content)
 }
 
-public func object<Content: ContentOfHtmlObjectTag>(
+public func object(
     _ attributes: OrderedSet<Attribute<HTML.Tag.Object>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Object.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Object>
 ) -> HTML.NodeWrapper<HTML.Tag.Object> {
     .init(.element(HTML.Tag.Object().name, attributes.erased, content().node))
 }
@@ -1550,16 +1552,16 @@ public func ol(
     ol(attributes) { text(content) }
 }
 
-public func ol<Content: ContentOfHtmlOlTag>(
+public func ol(
     _ attributes: Attribute<HTML.Tag.Ol>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Ol.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Ol>
 ) -> HTML.NodeWrapper<HTML.Tag.Ol> {
     ol(attributes.unique(), content: content)
 }
 
-public func ol<Content: ContentOfHtmlOlTag>(
+public func ol(
     _ attributes: OrderedSet<Attribute<HTML.Tag.Ol>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Ol.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Ol>
 ) -> HTML.NodeWrapper<HTML.Tag.Ol> {
     .init(.element(HTML.Tag.Ol().name, attributes.erased, content().node))
 }
@@ -1575,16 +1577,16 @@ public func optgroup(
     optgroup(attributes) { text(content) }
 }
 
-public func optgroup<Content: ContentOfHtmlOptgroupTag>(
+public func optgroup(
     _ attributes: Attribute<HTML.Tag.Optgroup>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Optgroup.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Optgroup>
 ) -> HTML.NodeWrapper<HTML.Tag.Optgroup> {
     optgroup(attributes.unique(), content: content)
 }
 
-public func optgroup<Content: ContentOfHtmlOptgroupTag>(
+public func optgroup(
     _ attributes: OrderedSet<Attribute<HTML.Tag.Optgroup>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Optgroup.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Optgroup>
 ) -> HTML.NodeWrapper<HTML.Tag.Optgroup> {
     .init(.element(HTML.Tag.Optgroup().name, attributes.erased, content().node))
 }
@@ -1600,16 +1602,16 @@ public func option(
     option(attributes) { text(content) }
 }
 
-public func option<Content: ContentOfHtmlOptionTag>(
+public func option(
     _ attributes: Attribute<HTML.Tag.Option>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Option.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Option>
 ) -> HTML.NodeWrapper<HTML.Tag.Option> {
     option(attributes.unique(), content: content)
 }
 
-public func option<Content: ContentOfHtmlOptionTag>(
+public func option(
     _ attributes: OrderedSet<Attribute<HTML.Tag.Option>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Option.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Option>
 ) -> HTML.NodeWrapper<HTML.Tag.Option> {
     .init(.element(HTML.Tag.Option().name, attributes.erased, content().node))
 }
@@ -1625,21 +1627,21 @@ public func output(
     output(attributes) { text(content) }
 }
 
-public func output<Content: ContentOfHtmlOutputTag>(
+public func output(
     _ attributes: Attribute<HTML.Tag.Output>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Output.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Output>
 ) -> HTML.NodeWrapper<HTML.Tag.Output> {
     output(attributes.unique(), content: content)
 }
 
-public func output<Content: ContentOfHtmlOutputTag>(
+public func output(
     _ attributes: OrderedSet<Attribute<HTML.Tag.Output>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Output.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Output>
 ) -> HTML.NodeWrapper<HTML.Tag.Output> {
     .init(.element(HTML.Tag.Output().name, attributes.erased, content().node))
 }
 
-//// MARK: –––––––––––––––– P ––––––––––––––––
+// MARK: - –––––––––––––––– P ––––––––––––––––
 
 public func p(_ content: String) -> HTML.NodeWrapper<HTML.Tag.P> {
     p([], content)
@@ -1652,16 +1654,16 @@ public func p(
     p(attributes) { text(content) }
 }
 
-public func p<Content: ContentOfHtmlPTag>(
+public func p(
     _ attributes: Attribute<HTML.Tag.P>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.P.Builder content: () -> HTML.NodeWrapper<HTML.Tag.P>
 ) -> HTML.NodeWrapper<HTML.Tag.P> {
     p(attributes.unique(), content: content)
 }
 
-public func p<Content: ContentOfHtmlPTag>(
+public func p(
     _ attributes: OrderedSet<Attribute<HTML.Tag.P>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.P.Builder content: () -> HTML.NodeWrapper<HTML.Tag.P>
 ) -> HTML.NodeWrapper<HTML.Tag.P> {
     .init(.element(HTML.Tag.P().name, attributes.erased, content().node))
 }
@@ -1685,16 +1687,16 @@ public func picture(
     picture(attributes) { text(content) }
 }
 
-public func picture<Content: ContentOfHtmlPictureTag>(
+public func picture(
     _ attributes: Attribute<HTML.Tag.Picture>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Picture.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Picture>
 ) -> HTML.NodeWrapper<HTML.Tag.Picture> {
     picture(attributes.unique(), content: content)
 }
 
-public func picture<Content: ContentOfHtmlPictureTag>(
+public func picture(
     _ attributes: OrderedSet<Attribute<HTML.Tag.Picture>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Picture.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Picture>
 ) -> HTML.NodeWrapper<HTML.Tag.Picture> {
     .init(.element(HTML.Tag.Picture().name, attributes.erased, content().node))
 }
@@ -1710,16 +1712,16 @@ public func pre(
     pre(attributes) { text(content) }
 }
 
-public func pre<Content: ContentOfHtmlPreTag>(
+public func pre(
     _ attributes: Attribute<HTML.Tag.Pre>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Pre.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Pre>
 ) -> HTML.NodeWrapper<HTML.Tag.Pre> {
     pre(attributes.unique(), content: content)
 }
 
-public func pre<Content: ContentOfHtmlPreTag>(
+public func pre(
     _ attributes: OrderedSet<Attribute<HTML.Tag.Pre>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Pre.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Pre>
 ) -> HTML.NodeWrapper<HTML.Tag.Pre> {
     .init(.element(HTML.Tag.Pre().name, attributes.erased, content().node))
 }
@@ -1735,21 +1737,21 @@ public func progress(
     progress(attributes) { text(content) }
 }
 
-public func progress<Content: ContentOfHtmlProgressTag>(
+public func progress(
     _ attributes: Attribute<HTML.Tag.Progress>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Progress.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Progress>
 ) -> HTML.NodeWrapper<HTML.Tag.Progress> {
     progress(attributes.unique(), content: content)
 }
 
-public func progress<Content: ContentOfHtmlProgressTag>(
+public func progress(
     _ attributes: OrderedSet<Attribute<HTML.Tag.Progress>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Progress.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Progress>
 ) -> HTML.NodeWrapper<HTML.Tag.Progress> {
     .init(.element(HTML.Tag.Progress().name, attributes.erased, content().node))
 }
 
-//// MARK: –––––––––––––––– Q ––––––––––––––––
+// MARK: - –––––––––––––––– Q ––––––––––––––––
 
 public func q(_ content: String) -> HTML.NodeWrapper<HTML.Tag.Q> {
     q([], content)
@@ -1762,21 +1764,21 @@ public func q(
     q(attributes) { text(content) }
 }
 
-public func q<Content: ContentOfHtmlQTag>(
+public func q(
     _ attributes: Attribute<HTML.Tag.Q>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Q.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Q>
 ) -> HTML.NodeWrapper<HTML.Tag.Q> {
     q(attributes.unique(), content: content)
 }
 
-public func q<Content: ContentOfHtmlQTag>(
+public func q(
     _ attributes: OrderedSet<Attribute<HTML.Tag.Q>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Q.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Q>
 ) -> HTML.NodeWrapper<HTML.Tag.Q> {
     .init(.element(HTML.Tag.Q().name, attributes.erased, content().node))
 }
 
-//// MARK: –––––––––––––––– R ––––––––––––––––
+// MARK: - –––––––––––––––– R ––––––––––––––––
 
 public func rp(_ content: String) -> HTML.NodeWrapper<HTML.Tag.Rp> {
     rp([], content)
@@ -1789,16 +1791,16 @@ public func rp(
     rp(attributes) { text(content) }
 }
 
-public func rp<Content: ContentOfHtmlRpTag>(
+public func rp(
     _ attributes: Attribute<HTML.Tag.Rp>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Rp.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Rp>
 ) -> HTML.NodeWrapper<HTML.Tag.Rp> {
     rp(attributes.unique(), content: content)
 }
 
-public func rp<Content: ContentOfHtmlRpTag>(
+public func rp(
     _ attributes: OrderedSet<Attribute<HTML.Tag.Rp>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Rp.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Rp>
 ) -> HTML.NodeWrapper<HTML.Tag.Rp> {
     .init(.element(HTML.Tag.Rp().name, attributes.erased, content().node))
 }
@@ -1814,16 +1816,16 @@ public func rt(
     rt(attributes) { text(content) }
 }
 
-public func rt<Content: ContentOfHtmlRtTag>(
+public func rt(
     _ attributes: Attribute<HTML.Tag.Rt>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Rt.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Rt>
 ) -> HTML.NodeWrapper<HTML.Tag.Rt> {
     rt(attributes.unique(), content: content)
 }
 
-public func rt<Content: ContentOfHtmlRtTag>(
+public func rt(
     _ attributes: OrderedSet<Attribute<HTML.Tag.Rt>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Rt.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Rt>
 ) -> HTML.NodeWrapper<HTML.Tag.Rt> {
     .init(.element(HTML.Tag.Rt().name, attributes.erased, content().node))
 }
@@ -1839,21 +1841,21 @@ public func ruby(
     ruby(attributes) { text(content) }
 }
 
-public func ruby<Content: ContentOfHtmlRubyTag>(
+public func ruby(
     _ attributes: Attribute<HTML.Tag.Ruby>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Ruby.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Ruby>
 ) -> HTML.NodeWrapper<HTML.Tag.Ruby> {
     ruby(attributes.unique(), content: content)
 }
 
-public func ruby<Content: ContentOfHtmlRubyTag>(
+public func ruby(
     _ attributes: OrderedSet<Attribute<HTML.Tag.Ruby>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Ruby.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Ruby>
 ) -> HTML.NodeWrapper<HTML.Tag.Ruby> {
     .init(.element(HTML.Tag.Ruby().name, attributes.erased, content().node))
 }
 
-//// MARK: –––––––––––––––– S ––––––––––––––––
+// MARK: - –––––––––––––––– S ––––––––––––––––
 
 public func s(_ content: String) -> HTML.NodeWrapper<HTML.Tag.S> {
     s([], content)
@@ -1866,16 +1868,16 @@ public func s(
     s(attributes) { text(content) }
 }
 
-public func s<Content: ContentOfHtmlSTag>(
+public func s(
     _ attributes: Attribute<HTML.Tag.S>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.S.Builder content: () -> HTML.NodeWrapper<HTML.Tag.S>
 ) -> HTML.NodeWrapper<HTML.Tag.S> {
     s(attributes.unique(), content: content)
 }
 
-public func s<Content: ContentOfHtmlSTag>(
+public func s(
     _ attributes: OrderedSet<Attribute<HTML.Tag.S>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.S.Builder content: () -> HTML.NodeWrapper<HTML.Tag.S>
 ) -> HTML.NodeWrapper<HTML.Tag.S> {
     .init(.element(HTML.Tag.S().name, attributes.erased, content().node))
 }
@@ -1891,16 +1893,16 @@ public func samp(
     samp(attributes) { text(content) }
 }
 
-public func samp<Content: ContentOfHtmlSampTag>(
+public func samp(
     _ attributes: Attribute<HTML.Tag.Samp>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Samp.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Samp>
 ) -> HTML.NodeWrapper<HTML.Tag.Samp> {
     samp(attributes.unique(), content: content)
 }
 
-public func samp<Content: ContentOfHtmlSampTag>(
+public func samp(
     _ attributes: OrderedSet<Attribute<HTML.Tag.Samp>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Samp.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Samp>
 ) -> HTML.NodeWrapper<HTML.Tag.Samp> {
     .init(.element(HTML.Tag.Samp().name, attributes.erased, content().node))
 }
@@ -1916,16 +1918,16 @@ public func script(
     script(attributes) { text(content) }
 }
 
-public func script<Content: ContentOfHtmlScriptTag>(
+public func script(
     _ attributes: Attribute<HTML.Tag.Script>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Script.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Script>
 ) -> HTML.NodeWrapper<HTML.Tag.Script> {
     script(attributes.unique(), content: content)
 }
 
-public func script<Content: ContentOfHtmlScriptTag>(
+public func script(
     _ attributes: OrderedSet<Attribute<HTML.Tag.Script>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Script.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Script>
 ) -> HTML.NodeWrapper<HTML.Tag.Script> {
     .init(.element(HTML.Tag.Script().name, attributes.erased, content().node))
 }
@@ -1941,16 +1943,16 @@ public func section(
     section(attributes) { text(content) }
 }
 
-public func section<Content: ContentOfHtmlSectionTag>(
+public func section(
     _ attributes: Attribute<HTML.Tag.Section>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Section.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Section>
 ) -> HTML.NodeWrapper<HTML.Tag.Section> {
     section(attributes.unique(), content: content)
 }
 
-public func section<Content: ContentOfHtmlSectionTag>(
+public func section(
     _ attributes: OrderedSet<Attribute<HTML.Tag.Section>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Section.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Section>
 ) -> HTML.NodeWrapper<HTML.Tag.Section> {
     .init(.element(HTML.Tag.Section().name, attributes.erased, content().node))
 }
@@ -1966,16 +1968,16 @@ public func select(
     select(attributes) { text(content) }
 }
 
-public func select<Content: ContentOfHtmlSelectTag>(
+public func select(
     _ attributes: Attribute<HTML.Tag.Select>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Select.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Select>
 ) -> HTML.NodeWrapper<HTML.Tag.Select> {
     select(attributes.unique(), content: content)
 }
 
-public func select<Content: ContentOfHtmlSelectTag>(
+public func select(
     _ attributes: OrderedSet<Attribute<HTML.Tag.Select>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Select.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Select>
 ) -> HTML.NodeWrapper<HTML.Tag.Select> {
     .init(.element(HTML.Tag.Select().name, attributes.erased, content().node))
 }
@@ -1991,16 +1993,16 @@ public func slot(
     slot(attributes) { text(content) }
 }
 
-public func slot<Content: ContentOfHtmlSlotTag>(
+public func slot(
     _ attributes: Attribute<HTML.Tag.Slot>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Slot.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Slot>
 ) -> HTML.NodeWrapper<HTML.Tag.Slot> {
     slot(attributes.unique(), content: content)
 }
 
-public func slot<Content: ContentOfHtmlSlotTag>(
+public func slot(
     _ attributes: OrderedSet<Attribute<HTML.Tag.Slot>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Slot.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Slot>
 ) -> HTML.NodeWrapper<HTML.Tag.Slot> {
     .init(.element(HTML.Tag.Slot().name, attributes.erased, content().node))
 }
@@ -2016,16 +2018,16 @@ public func small(
     small(attributes) { text(content) }
 }
 
-public func small<Content: ContentOfHtmlSmallTag>(
+public func small(
     _ attributes: Attribute<HTML.Tag.Small>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Small.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Small>
 ) -> HTML.NodeWrapper<HTML.Tag.Small> {
     small(attributes.unique(), content: content)
 }
 
-public func small<Content: ContentOfHtmlSmallTag>(
+public func small(
     _ attributes: OrderedSet<Attribute<HTML.Tag.Small>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Small.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Small>
 ) -> HTML.NodeWrapper<HTML.Tag.Small> {
     .init(.element(HTML.Tag.Small().name, attributes.erased, content().node))
 }
@@ -2049,16 +2051,16 @@ public func span(
     span(attributes) { text(content) }
 }
 
-public func span<Content: ContentOfHtmlSpanTag>(
+public func span(
     _ attributes: Attribute<HTML.Tag.Span>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Span.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Span>
 ) -> HTML.NodeWrapper<HTML.Tag.Span> {
     span(attributes.unique(), content: content)
 }
 
-public func span<Content: ContentOfHtmlSpanTag>(
+public func span(
     _ attributes: OrderedSet<Attribute<HTML.Tag.Span>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Span.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Span>
 ) -> HTML.NodeWrapper<HTML.Tag.Span> {
     .init(.element(HTML.Tag.Span().name, attributes.erased, content().node))
 }
@@ -2074,16 +2076,16 @@ public func strong(
     strong(attributes) { text(content) }
 }
 
-public func strong<Content: ContentOfHtmlStrongTag>(
+public func strong(
     _ attributes: Attribute<HTML.Tag.Strong>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Strong.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Strong>
 ) -> HTML.NodeWrapper<HTML.Tag.Strong> {
     strong(attributes.unique(), content: content)
 }
 
-public func strong<Content: ContentOfHtmlStrongTag>(
+public func strong(
     _ attributes: OrderedSet<Attribute<HTML.Tag.Strong>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Strong.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Strong>
 ) -> HTML.NodeWrapper<HTML.Tag.Strong> {
     .init(.element(HTML.Tag.Strong().name, attributes.erased, content().node))
 }
@@ -2099,16 +2101,16 @@ public func style(
     style(attributes) { text(content) }
 }
 
-public func style<Content: ContentOfHtmlStyleTag>(
+public func style(
     _ attributes: Attribute<HTML.Tag.Style>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Style.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Style>
 ) -> HTML.NodeWrapper<HTML.Tag.Style> {
     style(attributes.unique(), content: content)
 }
 
-public func style<Content: ContentOfHtmlStyleTag>(
+public func style(
     _ attributes: OrderedSet<Attribute<HTML.Tag.Style>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Style.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Style>
 ) -> HTML.NodeWrapper<HTML.Tag.Style> {
     .init(.element(HTML.Tag.Style().name, attributes.erased, content().node))
 }
@@ -2124,16 +2126,16 @@ public func sub(
     sub(attributes) { text(content) }
 }
 
-public func sub<Content: ContentOfHtmlSubTag>(
+public func sub(
     _ attributes: Attribute<HTML.Tag.Sub>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Sub.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Sub>
 ) -> HTML.NodeWrapper<HTML.Tag.Sub> {
     sub(attributes.unique(), content: content)
 }
 
-public func sub<Content: ContentOfHtmlSubTag>(
+public func sub(
     _ attributes: OrderedSet<Attribute<HTML.Tag.Sub>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Sub.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Sub>
 ) -> HTML.NodeWrapper<HTML.Tag.Sub> {
     .init(.element(HTML.Tag.Sub().name, attributes.erased, content().node))
 }
@@ -2149,16 +2151,16 @@ public func summary(
     summary(attributes) { text(content) }
 }
 
-public func summary<Content: ContentOfHtmlSummaryTag>(
+public func summary(
     _ attributes: Attribute<HTML.Tag.Summary>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Summary.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Summary>
 ) -> HTML.NodeWrapper<HTML.Tag.Summary> {
     summary(attributes.unique(), content: content)
 }
 
-public func summary<Content: ContentOfHtmlSummaryTag>(
+public func summary(
     _ attributes: OrderedSet<Attribute<HTML.Tag.Summary>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Summary.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Summary>
 ) -> HTML.NodeWrapper<HTML.Tag.Summary> {
     .init(.element(HTML.Tag.Summary().name, attributes.erased, content().node))
 }
@@ -2174,21 +2176,21 @@ public func sup(
     sup(attributes) { text(content) }
 }
 
-public func sup<Content: ContentOfHtmlSupTag>(
+public func sup(
     _ attributes: Attribute<HTML.Tag.Sup>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Sup.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Sup>
 ) -> HTML.NodeWrapper<HTML.Tag.Sup> {
     sup(attributes.unique(), content: content)
 }
 
-public func sup<Content: ContentOfHtmlSupTag>(
+public func sup(
     _ attributes: OrderedSet<Attribute<HTML.Tag.Sup>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Sup.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Sup>
 ) -> HTML.NodeWrapper<HTML.Tag.Sup> {
     .init(.element(HTML.Tag.Sup().name, attributes.erased, content().node))
 }
 
-//// MARK: –––––––––––––––– T ––––––––––––––––
+// MARK: - –––––––––––––––– T ––––––––––––––––
 
 public func table(_ content: String) -> HTML.NodeWrapper<HTML.Tag.Table> {
     table([], content)
@@ -2201,16 +2203,16 @@ public func table(
     table(attributes) { text(content) }
 }
 
-public func table<Content: ContentOfHtmlTableTag>(
+public func table(
     _ attributes: Attribute<HTML.Tag.Table>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Table.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Table>
 ) -> HTML.NodeWrapper<HTML.Tag.Table> {
     table(attributes.unique(), content: content)
 }
 
-public func table<Content: ContentOfHtmlTableTag>(
+public func table(
     _ attributes: OrderedSet<Attribute<HTML.Tag.Table>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Table.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Table>
 ) -> HTML.NodeWrapper<HTML.Tag.Table> {
     .init(.element(HTML.Tag.Table().name, attributes.erased, content().node))
 }
@@ -2226,16 +2228,16 @@ public func tbody(
     tbody(attributes) { text(content) }
 }
 
-public func tbody<Content: ContentOfHtmlTbodyTag>(
+public func tbody(
     _ attributes: Attribute<HTML.Tag.Tbody>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Tbody.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Tbody>
 ) -> HTML.NodeWrapper<HTML.Tag.Tbody> {
     tbody(attributes.unique(), content: content)
 }
 
-public func tbody<Content: ContentOfHtmlTbodyTag>(
+public func tbody(
     _ attributes: OrderedSet<Attribute<HTML.Tag.Tbody>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Tbody.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Tbody>
 ) -> HTML.NodeWrapper<HTML.Tag.Tbody> {
     .init(.element(HTML.Tag.Tbody().name, attributes.erased, content().node))
 }
@@ -2251,16 +2253,16 @@ public func td(
     td(attributes) { text(content) }
 }
 
-public func td<Content: ContentOfHtmlTdTag>(
+public func td(
     _ attributes: Attribute<HTML.Tag.Td>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Td.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Td>
 ) -> HTML.NodeWrapper<HTML.Tag.Td> {
     td(attributes.unique(), content: content)
 }
 
-public func td<Content: ContentOfHtmlTdTag>(
+public func td(
     _ attributes: OrderedSet<Attribute<HTML.Tag.Td>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Td.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Td>
 ) -> HTML.NodeWrapper<HTML.Tag.Td> {
     .init(.element(HTML.Tag.Td().name, attributes.erased, content().node))
 }
@@ -2276,16 +2278,16 @@ public func template(
     template(attributes) { text(content) }
 }
 
-public func template<Content: ContentOfHtmlTemplateTag>(
+public func template(
     _ attributes: Attribute<HTML.Tag.Template>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Template.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Template>
 ) -> HTML.NodeWrapper<HTML.Tag.Template> {
     template(attributes.unique(), content: content)
 }
 
-public func template<Content: ContentOfHtmlTemplateTag>(
+public func template(
     _ attributes: OrderedSet<Attribute<HTML.Tag.Template>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Template.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Template>
 ) -> HTML.NodeWrapper<HTML.Tag.Template> {
     .init(.element(HTML.Tag.Template().name, attributes.erased, content().node))
 }
@@ -2301,16 +2303,16 @@ public func textarea(
     textarea(attributes) { text(content) }
 }
 
-public func textarea<Content: ContentOfHtmlTextareaTag>(
+public func textarea(
     _ attributes: Attribute<HTML.Tag.Textarea>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Textarea.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Textarea>
 ) -> HTML.NodeWrapper<HTML.Tag.Textarea> {
     textarea(attributes.unique(), content: content)
 }
 
-public func textarea<Content: ContentOfHtmlTextareaTag>(
+public func textarea(
     _ attributes: OrderedSet<Attribute<HTML.Tag.Textarea>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Textarea.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Textarea>
 ) -> HTML.NodeWrapper<HTML.Tag.Textarea> {
     .init(.element(HTML.Tag.Textarea().name, attributes.erased, content().node))
 }
@@ -2326,16 +2328,16 @@ public func tfoot(
     tfoot(attributes) { text(content) }
 }
 
-public func tfoot<Content: ContentOfHtmlTfootTag>(
+public func tfoot(
     _ attributes: Attribute<HTML.Tag.Tfoot>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Tfoot.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Tfoot>
 ) -> HTML.NodeWrapper<HTML.Tag.Tfoot> {
     tfoot(attributes.unique(), content: content)
 }
 
-public func tfoot<Content: ContentOfHtmlTfootTag>(
+public func tfoot(
     _ attributes: OrderedSet<Attribute<HTML.Tag.Tfoot>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Tfoot.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Tfoot>
 ) -> HTML.NodeWrapper<HTML.Tag.Tfoot> {
     .init(.element(HTML.Tag.Tfoot().name, attributes.erased, content().node))
 }
@@ -2351,16 +2353,16 @@ public func th(
     th(attributes) { text(content) }
 }
 
-public func th<Content: ContentOfHtmlThTag>(
+public func th(
     _ attributes: Attribute<HTML.Tag.Th>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Th.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Th>
 ) -> HTML.NodeWrapper<HTML.Tag.Th> {
     th(attributes.unique(), content: content)
 }
 
-public func th<Content: ContentOfHtmlThTag>(
+public func th(
     _ attributes: OrderedSet<Attribute<HTML.Tag.Th>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Th.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Th>
 ) -> HTML.NodeWrapper<HTML.Tag.Th> {
     .init(.element(HTML.Tag.Th().name, attributes.erased, content().node))
 }
@@ -2376,16 +2378,16 @@ public func thead(
     thead(attributes) { text(content) }
 }
 
-public func thead<Content: ContentOfHtmlTheadTag>(
+public func thead(
     _ attributes: Attribute<HTML.Tag.Thead>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Thead.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Thead>
 ) -> HTML.NodeWrapper<HTML.Tag.Thead> {
     thead(attributes.unique(), content: content)
 }
 
-public func thead<Content: ContentOfHtmlTheadTag>(
+public func thead(
     _ attributes: OrderedSet<Attribute<HTML.Tag.Thead>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Thead.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Thead>
 ) -> HTML.NodeWrapper<HTML.Tag.Thead> {
     .init(.element(HTML.Tag.Thead().name, attributes.erased, content().node))
 }
@@ -2401,16 +2403,16 @@ public func time(
     time(attributes) { text(content) }
 }
 
-public func time<Content: ContentOfHtmlTimeTag>(
+public func time(
     _ attributes: Attribute<HTML.Tag.Time>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Time.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Time>
 ) -> HTML.NodeWrapper<HTML.Tag.Time> {
     time(attributes.unique(), content: content)
 }
 
-public func time<Content: ContentOfHtmlTimeTag>(
+public func time(
     _ attributes: OrderedSet<Attribute<HTML.Tag.Time>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Time.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Time>
 ) -> HTML.NodeWrapper<HTML.Tag.Time> {
     .init(.element(HTML.Tag.Time().name, attributes.erased, content().node))
 }
@@ -2426,16 +2428,16 @@ public func title(
     title(attributes) { text(content) }
 }
 
-public func title<Content: ContentOfHtmlTitleTag>(
+public func title(
     _ attributes: Attribute<HTML.Tag.Title>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Title.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Title>
 ) -> HTML.NodeWrapper<HTML.Tag.Title> {
     title(attributes.unique(), content: content)
 }
 
-public func title<Content: ContentOfHtmlTitleTag>(
+public func title(
     _ attributes: OrderedSet<Attribute<HTML.Tag.Title>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Title.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Title>
 ) -> HTML.NodeWrapper<HTML.Tag.Title> {
     .init(.element(HTML.Tag.Title().name, attributes.erased, content().node))
 }
@@ -2451,16 +2453,16 @@ public func tr(
     tr(attributes) { text(content) }
 }
 
-public func tr<Content: ContentOfHtmlTrTag>(
+public func tr(
     _ attributes: Attribute<HTML.Tag.Tr>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Tr.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Tr>
 ) -> HTML.NodeWrapper<HTML.Tag.Tr> {
     tr(attributes.unique(), content: content)
 }
 
-public func tr<Content: ContentOfHtmlTrTag>(
+public func tr(
     _ attributes: OrderedSet<Attribute<HTML.Tag.Tr>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Tr.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Tr>
 ) -> HTML.NodeWrapper<HTML.Tag.Tr> {
     .init(.element(HTML.Tag.Tr().name, attributes.erased, content().node))
 }
@@ -2473,7 +2475,7 @@ public func track(_ attributes: OrderedSet<Attribute<HTML.Tag.Track>>) -> HTML.N
     .init(.element(HTML.Tag.Track().name, attributes.erased, []))
 }
 
-//// MARK: –––––––––––––––– U ––––––––––––––––
+// MARK: - –––––––––––––––– U ––––––––––––––––
 
 public func u(_ content: String) -> HTML.NodeWrapper<HTML.Tag.U> {
     u([], content)
@@ -2486,16 +2488,16 @@ public func u(
     u(attributes) { text(content) }
 }
 
-public func u<Content: ContentOfHtmlUTag>(
+public func u(
     _ attributes: Attribute<HTML.Tag.U>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.U.Builder content: () -> HTML.NodeWrapper<HTML.Tag.U>
 ) -> HTML.NodeWrapper<HTML.Tag.U> {
     u(attributes.unique(), content: content)
 }
 
-public func u<Content: ContentOfHtmlUTag>(
+public func u(
     _ attributes: OrderedSet<Attribute<HTML.Tag.U>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.U.Builder content: () -> HTML.NodeWrapper<HTML.Tag.U>
 ) -> HTML.NodeWrapper<HTML.Tag.U> {
     .init(.element(HTML.Tag.U().name, attributes.erased, content().node))
 }
@@ -2511,21 +2513,21 @@ public func ul(
     ul(attributes) { text(content) }
 }
 
-public func ul<Content: ContentOfHtmlUlTag>(
+public func ul(
     _ attributes: Attribute<HTML.Tag.Ul>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Ul.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Ul>
 ) -> HTML.NodeWrapper<HTML.Tag.Ul> {
     ul(attributes.unique(), content: content)
 }
 
-public func ul<Content: ContentOfHtmlUlTag>(
+public func ul(
     _ attributes: OrderedSet<Attribute<HTML.Tag.Ul>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Ul.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Ul>
 ) -> HTML.NodeWrapper<HTML.Tag.Ul> {
     .init(.element(HTML.Tag.Ul().name, attributes.erased, content().node))
 }
 
-//// MARK: –––––––––––––––– V ––––––––––––––––
+// MARK: - –––––––––––––––– V ––––––––––––––––
 
 public func `var`(_ content: String) -> HTML.NodeWrapper<HTML.Tag.Var> {
     `var`([], content)
@@ -2538,16 +2540,16 @@ public func `var`(
     `var`(attributes) { text(content) }
 }
 
-public func `var`<Content: ContentOfHtmlVarTag>(
+public func `var`(
     _ attributes: Attribute<HTML.Tag.Var>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Var.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Var>
 ) -> HTML.NodeWrapper<HTML.Tag.Var> {
     `var`(attributes.unique(), content: content)
 }
 
-public func `var`<Content: ContentOfHtmlVarTag>(
+public func `var`(
     _ attributes: OrderedSet<Attribute<HTML.Tag.Var>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Var.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Var>
 ) -> HTML.NodeWrapper<HTML.Tag.Var> {
     .init(.element(HTML.Tag.Var().name, attributes.erased, content().node))
 }
@@ -2563,21 +2565,21 @@ public func video(
     video(attributes) { text(content) }
 }
 
-public func video<Content: ContentOfHtmlVideoTag>(
+public func video(
     _ attributes: Attribute<HTML.Tag.Video>...,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Video.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Video>
 ) -> HTML.NodeWrapper<HTML.Tag.Video> {
     video(attributes.unique(), content: content)
 }
 
-public func video<Content: ContentOfHtmlVideoTag>(
+public func video(
     _ attributes: OrderedSet<Attribute<HTML.Tag.Video>>,
-    @NodeBuilder<HTML> content: () -> Content
+    @HTML.Tag.Video.Builder content: () -> HTML.NodeWrapper<HTML.Tag.Video>
 ) -> HTML.NodeWrapper<HTML.Tag.Video> {
     .init(.element(HTML.Tag.Video().name, attributes.erased, content().node))
 }
 
-//// MARK: –––––––––––––––– W ––––––––––––––––
+// MARK: - –––––––––––––––– W ––––––––––––––––
 
 public func wbr(_ attributes: Attribute<HTML.Tag.Wbr>...) -> HTML.NodeWrapper<HTML.Tag.Wbr> {
     wbr(attributes.unique())

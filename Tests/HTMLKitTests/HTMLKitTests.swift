@@ -48,8 +48,6 @@ final class HTMLKitTests: XCTestCase {
 
             """
         )
-//        NSPasteboard.general.clearContents()
-//        NSPasteboard.general.setString(refactor(oldCode), forType: .string)
-        
     }
+    
 }

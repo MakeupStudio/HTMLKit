@@ -9,6 +9,7 @@
 import MarkupCore
 
 public protocol HtmlMarkupSemantics: MarkupSemantics {}
+extension NoMarkupSemantics: HtmlMarkupSemantics {}
 
 public enum HTML: MarkupContext, DocumentFormat {
     public typealias _Attribute = AnyMarkupAttribute

@@ -9,7 +9,8 @@ let package = Package(
     products: [
         .library(
             name: "HTMLKit",
-            targets: ["HTMLKit"]),
+            targets: ["HTMLKit"]
+        ),
     ],
     dependencies: [
         .package(url: "https://github.com/MakeupStudio/MarkupCore.git", .branch("master")),
@@ -25,6 +26,21 @@ let package = Package(
         ),
         .testTarget(
             name: "HTMLKitTests",
-            dependencies: [.target(name: "HTMLKit")]),
+            dependencies: [
+                .target(name: "HTMLKit")
+            ]
+        ),
+        .target(
+            name: "CodeGen",
+            dependencies: [
+                .target(name: "HTMLKit")
+            ]
+        ),
+        .testTarget(
+            name: "CodeGenTests",
+            dependencies: [
+                .target(name: "CodeGen")
+            ]
+        )
     ]
 )
